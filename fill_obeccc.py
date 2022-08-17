@@ -3,6 +3,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.edge.service import Service
 from selenium.webdriver.common.keys import Keys
 import time
+import pandas as pd
+
+df = pd.read_excel('fill_obeccc.xlsx')
 
 path = r'C:\Users\saich\Documents\basic_python\EP.13_automate_web\msedgedriver.exe'
 service = Service(path)
@@ -17,7 +20,7 @@ elem = driver.find_element(By.XPATH, '/html/body/div/div/div[1]/div/div/div/div/
 elem.click()
 
 email = driver.find_element(By.ID, 'uemail')
-email.send_keys('saichon2namoom@gmail.com')
+email.send_keys(df['e-mail'][5])
 
 password = driver.find_element(By.ID, 'upassword')
 cf_password = driver.find_element(By.ID, 'ucfpassword')
@@ -34,10 +37,10 @@ dropdown.send_keys(Keys.ARROW_DOWN)
 dropdown.send_keys(Keys.ENTER)
 
 pre = driver.find_element(By.ID, 'utitle')
-pre.send_keys('เด็กชาย')
+pre.send_keys(df.pre[5])
 
-fname = driver.find_element(By.ID, 'ufname').send_keys('พิมล')
-lname = driver.find_element(By.ID, 'ulname').send_keys('ตุ่นกระโทก')
+fname = driver.find_element(By.ID, 'ufname').send_keys(df.fname[5])
+lname = driver.find_element(By.ID, 'ulname').send_keys(df.lname[5])
 #user_type.send_keys(Keys.ENTER)
 
 gender = driver.find_element(By.ID, "gender-male").click()
