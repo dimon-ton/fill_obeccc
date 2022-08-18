@@ -95,4 +95,15 @@ for i in range(len(df)+1):
 
 
     # quit programe
+    time.sleep(5)
+    try:
+        alert = driver.find_element(By.XPATH, '/html/body/div[4]/div/div[3]/button[1]')
+        alert.click()
+    except:
+        pass
+        
+    time.sleep(3)
     driver.quit()
+
+
+ 
