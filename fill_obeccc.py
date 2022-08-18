@@ -5,13 +5,14 @@ from selenium.webdriver.common.keys import Keys
 import time
 import pandas as pd
 
-for i in range(3):
-    df = pd.read_excel('fill_obeccc.xlsx')
+df = pd.read_excel('fill_obeccc.xlsx')
 
+print(len(df))
+
+for i in range(len(df)+1):
     path = r'C:\Users\saich\Documents\basic_python\EP.13_automate_web\msedgedriver.exe'
     service = Service(path)
     driver = webdriver.Edge(service=service)
-
     url = 'https://app.contentcenter.obec.go.th/#/'
     driver.get(url)
     driver.set_window_size(1400,1000)
@@ -89,7 +90,9 @@ for i in range(3):
     agree = driver.find_element(By.XPATH, '/html/body/div[3]/div/div/div[2]/div[8]/div/div/div/input')
     agree.click()
 
+    subscribe = driver.find_element(By.XPATH, '/html/body/div[3]/div/div/div[3]/button[2]')
+    subscribe.click()
+
 
     # quit programe
-    time.sleep(5)
     driver.quit()
