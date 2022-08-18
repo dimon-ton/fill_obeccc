@@ -10,7 +10,7 @@ df = pd.read_excel('fill_obeccc.xlsx')
 print(len(df))
 
 for i in range(len(df)+1):
-    path = r'C:\Users\saich\Documents\basic_python\EP.13_automate_web\msedgedriver.exe'
+    path = r'C:\Users\saich\Documents\fill_obeccc\msedgedriver.exe'
     service = Service(path)
     driver = webdriver.Edge(service=service)
     url = 'https://app.contentcenter.obec.go.th/#/'
